@@ -19,5 +19,10 @@
     *Title in HTML
     *Überschrift in HTML
     *<!--Überschrift der Größe 1-->
-    *
-    *
+    ## 19.11.21
+    *Kommentar in HTML einfügen: <!--ich bin ein Kommentar--> Kommentare werden vom Browser nicht interpretiert.
+    * Repository mit Github synchronisieren in einem mehrschrittigen Prozess:
+        1. DATEI Autospeichern einschalten bzw. auf speichern klicken.
+        2. in VSC auf das Git-Symbol in der Leiste ganz links klicken. Die Anzahl der anstehehenden Änderungen werden in einem blauen Kreis angezeigt.
+        3. Eine Nachricht zu den vorgenommenen Änderungen des Quelltextes eintippen. Dann *Commit*-Haken klicken.
+        4. Pull und Push auslösen, indem auf das Rädchen bzw. auf die Wolke ganz unten geklickt wird. 
