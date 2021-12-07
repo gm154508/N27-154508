@@ -38,3 +38,5 @@ Mit dem Befehl ```ipconfig``` wird die eigene IP-Adresse angezeigt. Die eigene I
 * button erstellen
 * style einfügen über styles.css-Datei
 * geschweifte Klammer {} mit AltGr+7 erstellen
+## 07.12.2021
++Schriftfarbe in der styles.css
