@@ -1,4 +1,12 @@
 body {
-    font-family: Arial, Helvetica, sans-serif; color:#74a5ff
+    font-family: Arial, Helvetica, sans-serif; color:#000000;
+    background-image: url('Hintergrund-van-Gogh.jpg');
 }
- 
+    .ofa_button
+    {
+    background-color: #4f95b6; /* Hintergrundfarbe */
+    color: #000000; /* Textfarbe */
+    border:black /* Rahmen */
+    padding: 10px; /* Innenabstand */
+    <text-align center> /* Ausrichtung Text */
+    font-size:17px;/* Schriftgröße */

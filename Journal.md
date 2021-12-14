@@ -39,4 +39,17 @@ Mit dem Befehl ```ipconfig``` wird die eigene IP-Adresse angezeigt. Die eigene I
 * style einfügen über styles.css-Datei
 * geschweifte Klammer {} mit AltGr+7 erstellen
 ## 07.12.2021
-+Schriftfarbe in der styles.css
+* Schriftfarbe in der styles.css
+## 10.12.2021
+*verschiedene Elemente in HTML recherchieren und einbauen
+* verschiedene Elemente in HTML stylen
+* Gute und weniger gute Quellen im Internet erkennen. Gut sind beispielsweise w3schools oder selfhtml
+## 14.12.2021
+* Bild einfügen
+* Unterschied zwischen PNG und JPG/JPEG verstehen
+* Alt-Tag beim Bild verstehen
+* Hyperlink einbauen mit <a href ...></a>
+* Target beim hyperlink versthen. _blank öffnet im neuen Tab
+## 14.01.2022 - K2
+* HTML
+* CSS
