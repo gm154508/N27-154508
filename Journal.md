@@ -50,6 +50,35 @@ Mit dem Befehl ```ipconfig``` wird die eigene IP-Adresse angezeigt. Die eigene I
 * Alt-Tag beim Bild verstehen
 * Hyperlink einbauen mit <a href ...></a>
 * Target beim hyperlink versthen. _blank öffnet im neuen Tab
+## 17.12.2021
+* Tabelle <table> einfügen
+* Zeilen <tr> {=table-row} und Zellen <td> {=table-data} in html tabellen verstehen
+*Listen (geordnet <ol> und ungeordnet <ul>) verstehen
+* In ungeordneten Listen den Aufzählungspunkt durch Bild ersetzen 
+* Horizontale Linie <hr> einbauen
+## 21.12.2021
+* Zeilenumbruch <br> einbauen
+## 11.01.2022
+* selfhtml
+* w3schools
 ## 14.01.2022 - K2
-* HTML
-* CSS
+* Ein lauffähiges Projekt mit einer leeren Index.ejs wird ausgeteilt. Es ist keine styles.css vorhanden. 
+* Die styles.css muss angelegt und richtig in der Index.ejs eingebaut werden.
+* Teil 1: HTML und CSS nach Vorgabe einbauen. Dazu müssen die HTML-Konstrukte aus dem Unterricht bekannt sein,
+* Teil 2: Ein unbekanntes Konstrukt muss im Intrenet gesucht und eingebaut werden.
+* Die styles aus der styles.css müssen gekonnt werden. Es kann auch sein das unbekannte styles anch Vorgabe eingebaut werden müssen; Bsp. gebe der Tabelle einen Rahmen (border) mit der Dicke 1. (*border="1"*)
+## 18.01.2022
+* Weitere Seite erstellen, indem die index.ejs kopiert und umbenannt wurde.
+## 21.01.2022
+* Aus Github styles.css eingebaut
+* alles verknüpt 
+* am login gearbeitet 
+* Log-in Seite erstellen 
+* Formular aus w3School kopiert und eingebaut
+* Type der Inputs entsprechend vom Text auf password bzw. number geändert
+* Die ID der Inputs setzen 
+* Verlinkung von login nach index und zurück erstellen
+# 25.01.2022
+* Unterschied zwischen POST und GET verstehn. GET transportiert die Daten vom Browser zum Server über die Adresszeile. POST transportiert die Daten "hinter den Kulissen"
+* Mit ALT +Tab zwischen Browser und VSC hin- und herspringen
+* Unterschied zwischen app.get(...) und app.post(...) verstehen. app.get('login') wird ausgeführt, wenn die Login-Startseite im Browser angefordert wird. app.post('login') wird ausgeführt, wenn der Button auf der Login-Seite gedrückt wird.
