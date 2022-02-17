@@ -49,7 +49,7 @@ meineApp.post('/login',(browserAnfrage, serverAntwort, next) => {
     console.log("ID des Kunden: " + idKunde)
     console.log("Kennwort des Kunden: " + kennwort)
     
-    if(idKunde == kunde.IdKunde){
+    if(idKunde == kunde.IdKunde && kennwort == kunde.Kennwort){
         serverAntwort.render('index.ejs', {})          
     }else{ 
     serverAntwort.render('login.ejs', {})  
@@ -73,4 +73,5 @@ meineApp.post('/login',(browserAnfrage, serverAntwort, next) => {
     serverAntwort.render('index.ejs', {})          
 })
 
-require('./Uebungen/ifUndElse.js')
+//require('./Uebungen/ifUndElse.js')
+require('./Uebungen/klasseUndObjekt.js')
