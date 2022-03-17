@@ -30,26 +30,23 @@
             
         </div>
         <div class="inhaltsbereich">
-        <h2>Name</h2>
-        <p>
-            N27 Bank AG
-        </p>
-        <h2>Hauptsitz</h2>
-        <p>
-            Josefstraße 10
-        </p>
-        <p>
-            46325 Borken
-        </p>
-        <p>
-            Telefon: 02861 90900-0
-        </p>
-        <p>
-            Bankleitzahl: 270 000 00
-        </p>
-        <h2>Geschäftsführung</h2>
-        <p>
-            Malin G.
+            <h2>Mein Profil</h2> 
+            <form action="/profile">
+              <fieldset>
+                <legend>Persönliche Daten:</legend>
+                <form method="post">
+                    <label for="fname">Vorname:</label><br>
+                    <input type="text" name="Vorname" value=<%=Vorname %> readonly><br>
+                    <label for="lname">Nachname:</label><br>
+                    <input type="text" name="Nachname" value=<%=Nachname %> readonly><br>
+                    <label for="number">Telefonnummer:</label><br>
+                    <input type="tel" name="Telefonnummer" value=<%=Telefonnummer %>><br>
+                    <label for="E-mail">Mail:</label><br>
+                    <input type="email" name="E-mail" value=<%=Email %>><br><br>        
+                    <button class="login" formaction="/profile">ändern</button>
+                </form> 
+              </fieldset>
+            </form>
         </p>
         </div>
         <div class="fusszeile">

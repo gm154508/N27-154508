@@ -14,6 +14,7 @@ class Kunde{
         this.Kontostand
         this.Geburtsdatum
         this.Mail
+        this.Telefonnummer
     }
 }
 
@@ -29,6 +30,7 @@ kunde.IdKunde = 123666
 kunde.Nachname = "Mustermann"
 kunde.Vorname = "Max"
 kunde.Geburtsdatum = "12.03.2004"
+kunde.Telefonnummer = 845201
 kunde.Mail = "mustermannmax@web.de"
 kunde.Kennwort = "696"
 
@@ -136,6 +138,14 @@ meineApp.get('/login',(browserAnfrage, serverAntwort, next) => {
 meineApp.get('/about',(browserAnfrage, serverAntwort, next) => {              
     serverAntwort.render('about.ejs', {})          
 })
+meineApp.get('/profile',(browserAnfrage, serverAntwort, next) => {              
+    serverAntwort.render('profile.ejs', {
+        Vorname: kunde.Vorname,
+        Nachname: kunde.Nachname,
+        Telefonnummer: kunde.Telefonnummer,
+        Email: kunde.Mail
 
+    })          
+})
 // require('./Uebungen/ifUndElse.js')
 require('./Uebungen/klasseUndObjekt.js')
