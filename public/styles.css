@@ -41,7 +41,7 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  font-size: 4vh;
+  font-size: 3vh;
 }
   
 .login {
@@ -54,7 +54,8 @@ input {
   padding: 14px 20px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 2em;  
+  font-size: 2em; 
+ 
 }
     
 label {
@@ -62,9 +63,8 @@ label {
   margin-bottom: 10px;
   margin-right: 10%;
   margin-left: 10%;  
-      
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5em;  
+  font-size: 3.5vh;  
   color:black;
 }
 
@@ -95,9 +95,25 @@ h1 {
   
 h2 {  
   color: #4CAF50;  
+  font-size: 0.4cm; 
+  font-family: Arial, Helvetica, sans-serif;
+  text-align:center;
+}
+
+h3 {  
+  color: #4CAF50;  
   font-size: 2,5vh; 
   font-family: Arial, Helvetica, sans-serif;
   text-align:center;
+}
+
+fieldset {  
+  color: #4CAF50;  
+  font-size: 2,5vh; 
+  font-family: Arial, Helvetica, sans-serif;
+  text-align:center;
+  border-color: #358b37;
+  border-radius: 0.5cm;
 }
   
 

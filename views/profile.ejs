@@ -16,35 +16,35 @@
         </div>
         <div class="navigationsleiste">
             <a href="/about">
-                <i class="fa fa-info fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-info fa-2x" title="info" aria-hidden="true"></i>
             </a>  --
             <a href="/">
-                <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-home fa-2x" title="home" aria-hidden="true"></i>
             </a>  --  
             <a href="/login">
-                <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-sign-out fa-2x" title="logout" aria-hidden="true"></i>
             </a> --
             <a href="/profile">
-                <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-user fa-2x" title="mein Profil" aria-hidden="true"></i>
             </a>
             
         </div>
         <div class="inhaltsbereich">
-            <h2>Mein Profil</h2> 
-            <form action="/profile">
+            <h3>Mein Profil</h3> 
               <fieldset>
                 <legend>Persönliche Daten:</legend>
                 <form method="post">
-                    <label for="fname">Vorname:</label><br>
+                    <h2 for="fname">Vorname:</label><br>
                     <input type="text" name="Vorname" value=<%=Vorname %> readonly><br>
-                    <label for="lname">Nachname:</label><br>
+                    <h2 for="lname">Nachname:</label><br>
                     <input type="text" name="Nachname" value=<%=Nachname %> readonly><br>
-                    <label for="number">Telefonnummer:</label><br>
-                    <input type="tel" name="Telefonnummer" value=<%=Telefonnummer %>><br>
-                    <label for="E-mail">Mail:</label><br>
-                    <input type="email" name="E-mail" value=<%=Email %>><br><br>        
+                    <h2 for="password">Kennwort:</label><br>
+                    <input type="password" name="Kennwort" value=<%=Kennwort %>><br>
+                    <h2 for="E-mail">Mail:</label><br>
+                    <input type="email" name="Mail" value=<%=Email %>><br>
+                    <h2 for="number">Telefonnummer:</label><br>
+                    <input type="tel" name="Telefonnummer" value=<%=Telefonnummer %>><br>        
                     <button class="login" formaction="/profile">ändern</button>
-                </form> 
               </fieldset>
             </form>
         </p>

@@ -138,14 +138,38 @@ meineApp.get('/login',(browserAnfrage, serverAntwort, next) => {
 meineApp.get('/about',(browserAnfrage, serverAntwort, next) => {              
     serverAntwort.render('about.ejs', {})          
 })
+
 meineApp.get('/profile',(browserAnfrage, serverAntwort, next) => {              
     serverAntwort.render('profile.ejs', {
         Vorname: kunde.Vorname,
         Nachname: kunde.Nachname,
         Telefonnummer: kunde.Telefonnummer,
-        Email: kunde.Mail
+        Email: kunde.Mail,
+        Kennwort: kunde.Kennwort
 
     })          
 })
+
+//Sobald der Speichern-Button auf der Profile-Seite gedrückt wird,
+//wird die meineApp.post('profile'...) abgearbeitet.
+meineApp.post('/profile',(browserAnfrage, serverAntwort, next) => {              
+    
+    // Der Wert der Eigenschaft von Mail in Browser wird zugewiesen an die 
+    //Eigenschaft Mail des Objekts Kunde
+    kunde.Mail = browserAnfrage.body.Mail
+    kunde.Kennwort = browserAnfrage.body.Kennwort
+    kunde.Telefonnummer = browserAnfrage.body.Telefonnummer
+    
+    console.log("Profil gespeichert." + kunde.Kennwort)
+        
+    serverAntwort.render('profile.ejs', {
+        Vorname: kunde.Vorname,
+        Nachname: kunde.Nachname,
+        Telefonnummer: kunde.Telefonnummer,
+        Email: kunde.Mail,
+        Kennwort: kunde.Kennwort
+    })
+})
+
 // require('./Uebungen/ifUndElse.js')
 require('./Uebungen/klasseUndObjekt.js')
