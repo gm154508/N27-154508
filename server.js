@@ -145,8 +145,8 @@ meineApp.get('/profile',(browserAnfrage, serverAntwort, next) => {
         Nachname: kunde.Nachname,
         Telefonnummer: kunde.Telefonnummer,
         Email: kunde.Mail,
-        Kennwort: kunde.Kennwort
-
+        Kennwort: kunde.Kennwort,
+        Erfolgsmeldung: ""
     })          
 })
 
@@ -154,11 +154,35 @@ meineApp.get('/profile',(browserAnfrage, serverAntwort, next) => {
 //wird die meineApp.post('profile'...) abgearbeitet.
 meineApp.post('/profile',(browserAnfrage, serverAntwort, next) => {              
     
+    //Die Erfolgsmeldung für das Speichern der geänderten Profildaten
+    //wird in eine lokale Variable namens erfolgsmeldung gespeichert
+
+    let erfolgsmeldung = ""
+
     // Der Wert der Eigenschaft von Mail in Browser wird zugewiesen an die 
     //Eigenschaft Mail des Objekts Kunde
-    kunde.Mail = browserAnfrage.body.Mail
-    kunde.Kennwort = browserAnfrage.body.Kennwort
-    kunde.Telefonnummer = browserAnfrage.body.Telefonnummer
+    if(kunde.Mail != browserAnfrage.body.Mail){
+        
+        //Wenn der Wert der Eigenschaft von kunde abweicht vom Wert
+        //der Eigenschaft Mail aus dem Browser-Formular dann wird 
+        //die Erfolgsmeldung initialisiert:
+
+        erfolgsmeldung = erfolgsmeldung + "Änderung der Mail erfolgreich."
+        kunde.Mail = browserAnfrage.body.Mail
+        console.log(erfolgsmeldung)
+    }
+    if(kunde.Kennwort != browserAnfrage.body.Kennwort){
+        
+        erfolgsmeldung = erfolgsmeldung + "Änderung des Kennworts erfolgreich."
+        kunde.Kennwort = browserAnfrage.body.Kennwort
+        console.log(erfolgsmeldung)
+    }
+    if(kunde.Telefonnummer != browserAnfrage.body.Telefonnummer){
+      
+        erfolgsmeldung = erfolgsmeldung + "Änderung der Telefonnummer erfolgreich."
+        kunde.Telefonnummer = browserAnfrage.body.Telefonnummer
+        console.log(erfolgsmeldung)
+    }
     
     console.log("Profil gespeichert." + kunde.Kennwort)
         
@@ -167,7 +191,8 @@ meineApp.post('/profile',(browserAnfrage, serverAntwort, next) => {
         Nachname: kunde.Nachname,
         Telefonnummer: kunde.Telefonnummer,
         Email: kunde.Mail,
-        Kennwort: kunde.Kennwort
+        Kennwort: kunde.Kennwort,
+        Erfolgsmeldung: erfolgsmeldung
     })
 })
 
