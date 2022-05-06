@@ -5,9 +5,30 @@
 // Alle Kunden unserer Bank haben dieselben Eigenschaften, aber
 // unterschiedliche Eigenschaftswerte
 
+class Kundenberater{
+    constructor(){
+        this.IdKundenberater
+        this.Nachname
+        this.Vorname
+        this.Begruessung
+        this.Email
+        this.Telefonnummer
+        this.Filiale
+    }
+}
+let kundenberater = new Kundenberater()
+
+kundenberater.IdKundenberater = 345876
+kundenberater.Nachname = "Hoffmann"
+kundenberater.Vorname = "Hans Hermann"
+kundenberater.Begruessung = "Dann melden sie sich doch einfach bei mir, per Telefon, Mail oder direkt vor Ort!"
+kundenberater.Email = "HoffmannKundensupport@n27.com"
+kundenberater.Telefonnummer = "01234 23457"
+kundenberater.Filiale = "Josefstraße 10, Borken"
+
 class Kunde{
     constructor(){
-        this.IdKunde
+        this.IdKunden 
         this.Nachname
         this.Vorname
         this.Kennwort
@@ -68,7 +89,7 @@ meineApp.get('/',(browserAnfrage, serverAntwort, next) => {
         // Wenn der Kunde noch nicht eigeloggt ist, soll
         // die Loginseite an den Browser zurückgegeben werden.
         serverAntwort.render('login.ejs', {
-            meldung : ""
+            Meldung : ""
         })
     }                 
 })
@@ -110,7 +131,7 @@ meineApp.post('/login',(browserAnfrage, serverAntwort, next) => {
         // gerenderte Login-Seite an den Browser zurückgegeben.
 
         serverAntwort.render('login.ejs', {
-            meldung : "Ihre Zugangsdaten scheinen nicht zu stimmen."
+            Meldung : "Ihre Zugangsdaten scheinen nicht zu stimmen."
         })
     }
 })
@@ -128,7 +149,7 @@ meineApp.get('/login',(browserAnfrage, serverAntwort, next) => {
     // Browser zurückgegeben:
 
     serverAntwort.render('login.ejs', {
-        meldung : "Bitte geben Sie die Zugangsdaten ein."
+        Meldung : "Bitte geben Sie die Zugangsdaten ein."
     })          
 })
 
@@ -136,18 +157,49 @@ meineApp.get('/login',(browserAnfrage, serverAntwort, next) => {
 // auf dem Login-Formular gedrückt wird.
 
 meineApp.get('/about',(browserAnfrage, serverAntwort, next) => {              
-    serverAntwort.render('about.ejs', {})          
+    if(browserAnfrage.signedCookies['istAngemeldetAls']){
+    serverAntwort.render('about.ejs', {
+    }) 
+    }else{
+        serverAntwort.render('login.ejs', {
+            Meldung : "Ihre Zugangsdaten scheinen nicht zu stimmen."
+        })
+    }
+    })         
+
+meineApp.get('/profile',(browserAnfrage, serverAntwort, next) => {  
+    if(browserAnfrage.signedCookies['istAngemeldetAls']){
+        serverAntwort.render('profile.ejs', {
+            Vorname: kunde.Vorname,
+            Nachname: kunde.Nachname,
+            Telefonnummer: kunde.Telefonnummer,
+            Email: kunde.Mail,
+            Kennwort: kunde.Kennwort,
+            Erfolgsmeldung: ""
+        })          
+    }else{
+        serverAntwort.render('login.ejs', {
+            Meldung : "Ihre Zugangsdaten scheinen nicht zu stimmen."
+        })
+    }
 })
 
-meineApp.get('/profile',(browserAnfrage, serverAntwort, next) => {              
-    serverAntwort.render('profile.ejs', {
-        Vorname: kunde.Vorname,
-        Nachname: kunde.Nachname,
-        Telefonnummer: kunde.Telefonnummer,
-        Email: kunde.Mail,
-        Kennwort: kunde.Kennwort,
-        Erfolgsmeldung: ""
-    })          
+meineApp.get('/support',(browserAnfrage, serverAntwort, next) => {  
+    if(browserAnfrage.signedCookies['istAngemeldetAls']){            
+        serverAntwort.render('support.ejs', {
+            Vorname: kundenberater.Vorname,
+            Nachname: kundenberater.Nachname,
+            Begruessung: kundenberater.Begruessung,
+            Telefonnummer: kundenberater.Telefonnummer,
+            Email: kundenberater.Email,
+            Filiale: kundenberater.Filiale,
+            Erfolgsmeldung: ""
+    })
+}else{
+    serverAntwort.render('login.ejs', {
+        Meldung : "Ihre Zugangsdaten scheinen nicht zu stimmen."
+    })
+}
 })
 
 //Sobald der Speichern-Button auf der Profile-Seite gedrückt wird,
@@ -195,6 +247,40 @@ meineApp.post('/profile',(browserAnfrage, serverAntwort, next) => {
         Erfolgsmeldung: erfolgsmeldung
     })
 })
+        
+class Konto{
+    constructor(){
+        this.Kontostand
+        this.IBAN
+        this.Art
+        this.PIN
+    }
+}
+// Instanziierung eines Objekts namens konto vom Typ Konto
 
-// require('./Uebungen/ifUndElse.js')
+let konto = new Konto ()
+
+konto.kontostand = 2000000,00
+konto.IBAN ="DE90 12345678 1234567890"
+konto.Art = "Sparbuch"
+konto.Pin = 5473
+
+
+meineApp.get('/KontostandAnzeigen',(browserAnfrage, serverAntwort, next) => {              
+    if(browserAnfrage.signedCookies['istAngemeldetAls']){
+    serverAntwort.render('KontostandAnzeigen.ejs', {
+        Kontostand: konto.Kontostand,
+        IBAN: konto.IBAN,
+        Art: konto.Art,
+        PIN: konto.PIN,
+        Meldung : "Ihre Zugangsdaten scheinen nicht zu stimmen."
+    }) 
+    }else{
+        serverAntwort.render('login.ejs', {
+           
+        })
+    }
+    })        
+
+require('./Uebungen/ifUndElse.js')
 require('./Uebungen/klasseUndObjekt.js')
