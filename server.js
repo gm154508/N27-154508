@@ -252,17 +252,17 @@ class Konto{
     constructor(){
         this.Kontostand
         this.IBAN
-        this.Art
+        this.Kontoart
         this.PIN
     }
 }
 // Instanziierung eines Objekts namens konto vom Typ Konto
 
-let konto = new Konto ()
+let konto = new Konto()
 
-konto.kontostand = 2000000,00
-konto.IBAN ="DE90 12345678 1234567890"
-konto.Art = "Sparbuch"
+konto.Kontostand = 2000000
+konto.IBAN ="DE90123456781234567890"
+konto.Kontoart = "Sparbuch"
 konto.Pin = 5473
 
 
@@ -271,7 +271,7 @@ meineApp.get('/KontostandAnzeigen',(browserAnfrage, serverAntwort, next) => {
     serverAntwort.render('KontostandAnzeigen.ejs', {
         Kontostand: konto.Kontostand,
         IBAN: konto.IBAN,
-        Art: konto.Art,
+        Kontoart: konto.Kontoart,
         PIN: konto.PIN,
         Meldung : "Ihre Zugangsdaten scheinen nicht zu stimmen."
     }) 
@@ -282,6 +282,32 @@ meineApp.get('/KontostandAnzeigen',(browserAnfrage, serverAntwort, next) => {
     }
     })        
 
+    class Kredit{
+     constructor(){
+         this.Zinssatz
+         this.Laufzeit
+         this.Betrag
+     }
+     //Eine Funktion berechnet etwas. Im Namen der Funktion steht also immer ein Verb.
+     berechneGesamtkostenKredit (){
+        return this.Betrag * this.Zinssatz / 100 + this.Betrag
+     }  
+    }   
+    
+    meineApp.get('/KreditBerechnen',(browserAnfrage, serverAntwort, next) => {              
+        if(browserAnfrage.signedCookies['istAngemeldetAls']){
+        serverAntwort.render('KreditBerechnen.ejs', {
+            Kontostand: konto.Kontostand,
+            
+            Meldung : "Ihre Zugangsdaten scheinen nicht zu stimmen."
+        }) 
+        }else{
+            serverAntwort.render('login.ejs', {
+               
+            })
+        }
+        })        
+    
 //require('./Uebungen/ifUndElse.js')
 //require('./Uebungen/klasseUndObjekt.js')
 require('./Uebungen/klausur.js')

@@ -7,12 +7,12 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>N27 - Kontostand anzeigen</title>
+    <title>N27 - Über uns</title>
 </head>
 <body>
     <div class="rahmen">
         <div class="kopf">
-            <h1>N27 - Kontostand anzeigen</h1>            
+            <h1>N27 - Kredit berechnen</h1>            
         </div>
         <div class="navigationsleiste">
             <a href="/about">
@@ -30,18 +30,22 @@
             <a href="/support">
                 <i class="fa fa-question fa-2x" title="support" aria-hidden="true"></i>
             </a>
-            
-        </div>
-        <div class="inhaltsbereich">
             <form method="post">
-                <label>Kontoart:</label><br>
-                <input type="text" name="Kontoart" readonly value=<%=Kontoart %>><br>
-                <label>IBAN</label><br>
-                <input type="text" name="IBAN" value=<%=IBAN %> readonly><br>
-                <label>Kontostand:</label><br>
-                <input type="number" name="Kontostand" readonly value=<%=Kontostand %> readonly<br>
+                <h2 for="fname">Gewünschter Kreditbetrag</label><br>
+                <input type="number" name="Betrag" value=<%=Betrag %><br>
+                <h2 for="lname">Gewünschte Laufzeit:</label><br>
+                <input type="number" name="Laufzeit" value=<%=Laufzeit %><br>
+                <h2 for="number">Gewünschter Zinssatz:</label><br>
+                <input type="number" name="Zinssatz" value=<%=Zinssatz %>><br>
           </fieldset>
         </form>
+        </div>
+        <div class="inhaltsbereich">
+            <form>
+                <button class="login" formaction="/KontostandAnzeigen">Kontostand anzeigen</button>
+                <br>
+                <button class="login" formaction="/Kreditberechnen">Kontostand berechnen</button>
+            </form>
         </div>
         <div class="fusszeile">
             &copy; 2022 GW21A
