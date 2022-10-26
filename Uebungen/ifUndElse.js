@@ -69,7 +69,7 @@ if (einwohnerBerlin>einwohnerKöln){
 
 console.log("Übung 6 - Prüfung auf kleiner:")
 
-let punkteBayern = 52
+let punkteBayern = 55
 let punkteDortmund = 43
 
 if (punkteBayern<punkteDortmund){
@@ -123,5 +123,6 @@ if(einzahlung-auszahlung){
 }else{
     console.log("Der Saldo ist null")
 }
+
 
 console.log ("KLAUSUR")
