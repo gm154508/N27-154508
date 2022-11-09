@@ -25,7 +25,6 @@ kundenberater.Begruessung = "Dann melden sie sich doch einfach bei mir, per Tele
 kundenberater.Email = "HoffmannKundensupport@n27.com"
 kundenberater.Telefonnummer = "01234 23457"
 kundenberater.Filiale = "Josefstraße 10, Borken"
-
 class Kunde{
     constructor(){
         this.IdKunden 
