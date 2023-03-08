@@ -1,3 +1,69 @@
+// Das instalierrte MYSQL-Modul wird mit require eingebunden. 
+// Das MYSQL-Modul stellt die Verbindung zwischen der App und 
+// der MYSQL-Datenbank her. 
+// Eine Datenbank wird benötigt, wenn Daten auch nach der Laufzeit 
+// des Programms noch weiter existieren sollen. 
+// Außerdem ermöglicht die Datenbank, dass z.B. Geldüberweisungen 
+// zwischen Anwendern möglich werden.
+
+var mysql = require ('mysql');
+
+// Die Verbindung zur Datenbank wird hergstellt. Dazu werden
+// die Adresse und die Anmeldedaten der Datenbank angegeben.
+
+var dbVerbindung = mysql.createConnection({
+    host: "10.40.38.110",
+    user: "placematman",
+    password: "BKB123456!",
+    database: "dbn27",
+  });
+  
+  dbVerbindung.connect(function(err) {
+
+// Wenn die Verbindung scheitert , wird ein Fehler geworfen.
+
+    if (err) throw err;
+
+// Wenn die Verbindung aufgebaut werden kann, wird der Erfolg
+// auf der Console geloggt.
+
+    console.log("Connected!");
+  });
+
+// Die Verbindung zur Datenbank wird geöffnet.
+
+  dbVerbindung.connect(function(fehler){
+
+// Die Tabelle namens Kunde wird erstellt 
+// Die Spalten heißen: idkunde, vorname, nachname, ort, kennwort, mail
+// VARCHAR(45) legt den Datentyp der Spalte auf "Text" mit der Länge max. 45 Zeichen fest
+// INT(11) begrenzt die Eingabe auf 11 Ziffern.
+// idKunde ist primary key. Das bedeutet das die idKunde den Datensatz eindeutig
+// kennzeichnet. 
+
+    dbVerbindung.query('CREATE TABLE kunde(idKunde INT(11), vorname VARCHAR(45), nachname VARCHAR(45), ort VARCHAR(45), kennwort VARCHAR(45), mail VARCHAR(45), PRIMARY KEY(idKunde));', function (fehler) {
+
+// Falls ein Problem bei der Query auftaucht, ...
+
+    if (fehler) {
+
+// ... und der Fehlercode "ER_TABLE_EXISTS_ERROR" lautet, ...
+
+    if(fehler.code == "ER_TABLE_EXISTS_ERROR"){
+
+// ... dann wird eine Fehlermeldung geloggt. 
+
+    console.log("Tabelle kunde existiert bereits und wird nicht angelegt.")
+    }else{
+    console.log("Fehler: " + fehler )
+    }
+    }else{
+    console.log("Tabelle Kunde erfolgreich angelegt.")
+    }
+    })
+    })
+
+    
 // Programme verarbeiten oft Objekte der realen Welt.
 // Objekte haben Eigenschaften.
 // In unserem Bankingprogramm interessieren uns Objekte,
