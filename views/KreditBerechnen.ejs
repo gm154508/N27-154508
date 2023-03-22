@@ -7,45 +7,45 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>N27 - Über uns</title>
+    <title>N27 - Kredit berechnen</title>
 </head>
 <body>
     <div class="rahmen">
         <div class="kopf">
-            <h1>N27 - Kredit berechnen</h1>            
+            <h1>N27 - Kredit berechnen</h1>
         </div>
-        <div class="navigationsleiste">
-            <a href="/about">
-                <i class="fa fa-info fa-2x" title="info" aria-hidden="true"></i>
-            </a>  --
+        <div class="navigationsleiste">            
             <a href="/">
-                <i class="fa fa-home fa-2x" title="home" aria-hidden="true"></i>
-            </a>  --  
-            <a href="/login">
-                <i class="fa fa-sign-out fa-2x" title="logout" aria-hidden="true"></i>
+                <i class="fa fa-home fa-2x" aria-hidden="true" title="Willkommen"></i>
             </a> --
             <a href="/profile">
-                <i class="fa fa-user fa-2x" title="mein Profil" aria-hidden="true"></i>
-            </a> --
+                <i class="fa fa-user fa-2x" aria-hidden="true" title="Mein Profil"></i>
+            </a>   --
+            <a href="/about">
+                <i class="fa fa-info fa-2x" aria-hidden="true" title="Über uns"></i>
+            </a>   --
             <a href="/support">
-                <i class="fa fa-question fa-2x" title="support" aria-hidden="true"></i>
+                <i class="fa fa-phone-square fa-2x" aria-hidden="true" title="Über uns"></i>
+            </a>   --
+            <a href="/login">
+                <i class="fa fa-sign-out fa-2x" title="Abmelden"></i>
             </a>
-            <form method="post">
-                <h2 for="fname">Gewünschter Kreditbetrag</label><br>
-                <input type="number" name="Betrag" value=<%=Betrag %><br>
-                <h2 for="lname">Gewünschte Laufzeit:</label><br>
-                <input type="number" name="Laufzeit" value=<%=Laufzeit %><br>
-                <h2 for="number">Gewünschter Zinssatz:</label><br>
-                <input type="number" name="Zinssatz" value=<%=Zinssatz %>><br>
-          </fieldset>
-        </form>
         </div>
         <div class="inhaltsbereich">
-            <form>
-                <button class="login" formaction="/KontostandAnzeigen">Kontostand anzeigen</button>
-                <br>
-                <button class="login" formaction="/Kreditberechnen">Kontostand berechnen</button>
-            </form>
+            
+            <form method="post">
+                <label>Gewünschter Kreditbetrag:</label><br>
+                <input type="number" name="Betrag" value=<%= Betrag %>  ><br>
+                <label>Gewünschte Laufzeit:</label><br>
+                <input type="number" name="Laufzeit" value=<%= Laufzeit %> readonly><br>        
+                <label>Gewünschter Zinssatz:</label><br>
+                <input type="number" name="Zinssatz" value=<%= Zinssatz %>  ><br>
+                
+                <button class="login" formaction="/kreditBerechnen">Kredit berechnen</button>
+            </form>   
+            <p class="erfolgsmeldung"><%= Erfolgsmeldung %></p>
+
+
         </div>
         <div class="fusszeile">
             &copy; 2022 GW21A
